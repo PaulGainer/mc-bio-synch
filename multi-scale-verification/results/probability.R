@@ -171,7 +171,7 @@ if(fix_n_t_e_prob_vs_rp & create_graphs) {
           geom_line() +
           geom_point(size=3)+
           scale_x_continuous(breaks=c(0,2,4,6,8,10,12,14))+
-          scale_y_continuous(position="right")+
+          scale_y_continuous()+
 #          scale_shape_manual(values=1:nlevels(factor(prob_data$ML))) +
           scale+
           ggtitle(substitute("Synchronisation Probability (N="*n*", T="*t*","~epsilon*"="*e*")", list(n = bquote(.(n)), t = bquote(.(t)), e=bquote(.(e))))) +
@@ -321,7 +321,7 @@ if(fix_t_r_e_time_vs_N & create_graphs) {
             scale+
             theme(legend.position=c(.95,.16), legend.justification = c(0.95,0.85),legend.direction = "horizontal", text = element_text(size=gtext))+
             guides(colour= guide_legend(keywidth = 2))+
-            scale_y_continuous(position="right")+
+            scale_y_continuous()+
 #            scale_shape_manual(values=1:nlevels(factor(prob_data$ML))) +
             ggtitle(substitute("Time for Synchronisation (T="*t*", RP="*r*","~epsilon*"="* e*")", list(t = bquote(.(t)),r = bquote(.(r)), e=bquote(.(e))))) +
             labs( x = "N", y = "Sync. Time (in Cycles)", color=expression(mu), shape=expression(mu))
