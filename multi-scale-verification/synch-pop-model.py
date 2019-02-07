@@ -96,9 +96,9 @@ MODEL_NAME = 'mirollo-strogatz'
 N = [8, 8, 1]
 T = [10, 10, 1]
 EPSILON = [0.1, 0.1, 0.1]
-RP = [5, 5, 1]
-ML = [0.1, 0.1, 0.1]
-U = [0.1, 0.1, 0.1]
+RP = [0, 4, 1]
+ML = [0.0, 0.9, 0.1]
+U = [0, 0, 0]
 CD = [0, 0, 0]
 REWARDS = [R_TIME_TO_SYNCH] #R_POWER_CONSUMPTION
 #===============================================================================
@@ -115,8 +115,9 @@ def perturbation(t, x, epsilon, alpha):
 # properties to check in the models
 #===============================================================================
 def create_properties(n, t, rp, epsilon, ml, u, cd):
-	properties = [('P=? [F synchronised]', ['-hybrid'])]
-	properties.append(('R{"time_to_synch"}=? [F synchronised]', ['-hybrid']))
+#	properties = [('P=? [F synchronised]', ['-hybrid'])]
+	properties = [('R{"time_to_synch"}=? [F synchronised]', ['-hybrid'])]
+#	properties.append(('R{"time_to_synch"}=? [F synchronised]', ['-hybrid']))
 	
 	#properties = [('filter(avg, R{"power_consumption"}=? [F order_parameter >= 1], is_initial_state)', ['-hybrid', '-maxiters', '100000'])]
 	'''
