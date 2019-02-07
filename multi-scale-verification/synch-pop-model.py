@@ -94,13 +94,13 @@ MODEL_NAME = 'mirollo-strogatz'
 # the expression in a string and use lowercase letters, so n, t, epsilon etc....
 #===============================================================================
 N = [8, 8, 1]
-T = [10, 10, 2]
+T = [10, 10, 1]
 EPSILON = [0.1, 0.1, 0.1]
-RP = [1, 1, 1]
+RP = [5, 5, 1]
 ML = [0.1, 0.1, 0.1]
-U = [0, 0, 1]
+U = [0.1, 0.1, 0.1]
 CD = [0, 0, 0]
-REWARDS = [R_POWER_CONSUMPTION]
+REWARDS = [R_TIME_TO_SYNCH] #R_POWER_CONSUMPTION
 #===============================================================================
 # evol(x)
 #===============================================================================
@@ -115,7 +115,10 @@ def perturbation(t, x, epsilon, alpha):
 # properties to check in the models
 #===============================================================================
 def create_properties(n, t, rp, epsilon, ml, u, cd):
-	properties = [('filter(avg, R{"power_consumption"}=? [F order_parameter >= 1], is_initial_state)', ['-hybrid', '-maxiters', '100000'])]
+	properties = [('P=? [F synchronised]', ['-hybrid'])]
+	properties.append(('R{"time_to_synch"}=? [F synchronised]', ['-hybrid']))
+	
+	#properties = [('filter(avg, R{"power_consumption"}=? [F order_parameter >= 1], is_initial_state)', ['-hybrid', '-maxiters', '100000'])]
 	'''
 	op = 0.1
 	for i in range(10):
@@ -174,7 +177,7 @@ def create_properties(n, t, rp, epsilon, ml, u, cd):
 #-------------------------------------------------------------------------------
 # prism configuration
 #-------------------------------------------------------------------------------
-PRISM = 'prism64'
+PRISM = 'prism'
 PRISM_MEM_PARAMS = ['-cuddmaxmem', '4g', '-javamaxmem', '12g']
 TIME_COMMAND = '/usr/bin/time'
 TIME_PARAMS = '--verbose'
