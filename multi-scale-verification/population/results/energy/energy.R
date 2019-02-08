@@ -54,13 +54,13 @@ max_energy$interval<- (as.numeric(factor(max_energy$variable)) ) / 10
 
 
 ranges_energy <- avg_energy
-ranges_energy$avg <- avg_energy$value *1000/ranges_energy$N
+ranges_energy$exp <- avg_energy$value *1000/ranges_energy$N
 ranges_energy$max <- max_energy$value *1000/ranges_energy$N
 
 
 
 ranges_energy$variable <- NULL
-ranges_energy <- ranges_energy[c("N", "T", "eps", "RP", "ML", "U", "CD","interval", "avg","max")]
+ranges_energy <- ranges_energy[c("N", "T", "eps", "RP", "ML", "U", "CD","interval", "exp","max")]
 
 sync_energy_time = read.csv("results-mirollo-strogatz_energy_time_n8.csv", 
                             col.names=c("N","T","eps","RP", "ML", "U", "CD",
@@ -75,9 +75,9 @@ if (show_energy) {
       ranges_data_set=ranges_energy[ ranges_energy$eps ==e & ranges_energy$ML ==ml & ranges_energy$RP < 5,]
       
       pow_vs_ord <- ggplot(ranges_data_set) + 
-        geom_line(aes( x=interval,y=avg, colour=factor(RP), linetype="avg"))+
+        geom_line(aes( x=interval,y=exp, colour=factor(RP), linetype="exp"))+
         geom_line(aes( x=interval,y=max, colour=factor(RP), linetype="max"))+
-        geom_point(aes( x=interval,y=avg, colour=factor(RP), shape=factor(RP)),size = dotsize)+
+        geom_point(aes( x=interval,y=exp, colour=factor(RP), shape=factor(RP)),size = dotsize)+
         geom_point(aes( x=interval,y=max, colour=factor(RP), shape=factor(RP)),size = dotsize)+
         
         expand_limits(y=0,x=0.1)+
@@ -98,7 +98,7 @@ if (show_energy) {
   for (e in c(0.1)) {
     full_sync_energy <- sync_energy_time[ sync_energy_time$eps == e & sync_energy_time$RP < 5, ]
     pow_vs_ml <- ggplot(full_sync_energy) + 
-      geom_line(aes( x=ML,y=avg_energy, colour=factor(RP), linetype="avg"))+
+      geom_line(aes( x=ML,y=avg_energy, colour=factor(RP), linetype="exp"))+
       geom_line(aes( x=ML,y=max_energy, colour=factor(RP), linetype="max"))+
       geom_point(aes( x=ML,y=avg_energy, colour=factor(RP), shape=factor(RP)),size = dotsize)+
       geom_point(aes( x=ML,y=max_energy, colour=factor(RP), shape=factor(RP)),size = dotsize)+
@@ -142,7 +142,7 @@ if (show_sync_times) {
     for (ml in c(0.2)) {
       ranges_data_set=ranges_times[ ranges_times$eps ==e & ranges_times$ML ==ml & ranges_times$RP < 5,]
       pow_vs_ord <- ggplot(ranges_data_set) + 
-        geom_line(aes( x=interval,y=avg, colour=factor(RP), linetype="avg"))+
+        geom_line(aes( x=interval,y=avg, colour=factor(RP), linetype="exp"))+
         geom_line(aes( x=interval,y=max, colour=factor(RP), linetype="max"))+
         geom_point(aes( x=interval,y=avg, colour=factor(RP), shape=factor(RP)),size = dotsize)+
         geom_point(aes( x=interval,y=max, colour=factor(RP), shape=factor(RP)),size = dotsize)+
@@ -169,7 +169,7 @@ if (show_energy_vs_times) {
     geom_point(aes(x=avg_time, y=avg_energy, color=factor(RP), shape=factor(RP)),size = dotsize) +
     scale +
     geom_smooth(method ="lm", aes(x=avg_time, y=avg_energy, color=factor(RP)), size=.1)+
-    ggtitle(substitute(" Relation between Power Consumption and Time (N=8 T=10) [average]")) +
+    ggtitle(substitute(" Relation between Power Consumption and Time (N=8 T=10) [expected]")) +
     labs( x = "Sync. Time (cycles)", y = "Power Consumption (mWh)", colour="R", shape="R",  linetype="") +
     expand_limits(y=0,x=0)+
     scale_x_continuous( expand = c(0.01, 0))+
