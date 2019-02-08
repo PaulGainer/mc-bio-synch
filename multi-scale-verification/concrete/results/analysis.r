@@ -35,7 +35,7 @@ prob_data = n4[n4$ML <1 , ]
           theme(legend.position=c(.95,.8), legend.justification = c(0.95,0.85), text = element_text(size=gtext))+
           scale_x_continuous(breaks=c(0,2,4,6,8,10,12,14))+
           scale+
-          ggtitle(substitute(" Concrete Model Synchronisation Probability (N=4 T=10"~epsilon*"=.1)")) +
+          ggtitle(substitute("Concrete Model Synchronisation (N=4 T=10"~epsilon*"=.1)")) +
           labs( x = "R", y = "Sync. Probability", colour=expression(mu), shape=expression(mu)) 
 
   print(prob_vs_rp)
