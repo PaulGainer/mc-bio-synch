@@ -1,0 +1,286 @@
+Model constants: RP=10,mu=0.2,epsilon=0.1
+
+Building model...
+Model constants: RP=10,mu=0.2,epsilon=0.1
+
+Warning: Guard for command 8 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor5" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor5" is never satisfied.
+
+Computing reachable states...
+
+Reachability (BFS): 8 iterations in 0.01 seconds (average 0.001125, setup 0.00)
+
+Time for model construction: 0.034 seconds.
+
+Type:        DTMC
+States:      2920880 (200000 initial)
+Transitions: 6139905
+
+Transition matrix: 44810 nodes (14 terminal), 6139905 minterms, vars: 34r/34c
+
+Prob0: 1 iterations in 0.00 seconds (average 0.001000, setup 0.00)
+
+Prob1: 1 iterations in 0.01 seconds (average 0.005000, setup 0.00)
+
+yes = 435, no = 2920445, maybe = 0
+
+States satisfying filter s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start: 200000
+
+Average over states satisfying filter: 1.0E-4
+
+Time for model checking: 0.028 seconds.
+
+Result: 1.0E-4 (average over states satisfying filter)
+
+---------------------------------------------------------------------
+
+Model checking: filter(avg, P=? [ F s1Phase=s2Phase&s1Phase=s3Phase&s1Phase=s4Phase&s1Phase=s5Phase ], s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start)
+Model constants: RP=10,mu=0.4,epsilon=0.1
+
+Building model...
+Model constants: RP=10,mu=0.4,epsilon=0.1
+
+Warning: Guard for command 8 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor5" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor5" is never satisfied.
+
+Computing reachable states...
+
+Reachability (BFS): 8 iterations in 0.02 seconds (average 0.002750, setup 0.00)
+
+Time for model construction: 0.034 seconds.
+
+Type:        DTMC
+States:      2920880 (200000 initial)
+Transitions: 6139905
+
+Transition matrix: 44854 nodes (15 terminal), 6139905 minterms, vars: 34r/34c
+
+Prob0: 1 iterations in 0.00 seconds (average 0.002000, setup 0.00)
+
+Prob1: 1 iterations in 0.01 seconds (average 0.008000, setup 0.00)
+
+yes = 435, no = 2920445, maybe = 0
+
+States satisfying filter s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start: 200000
+
+Average over states satisfying filter: 1.0E-4
+
+Time for model checking: 0.027 seconds.
+
+Result: 1.0E-4 (average over states satisfying filter)
+
+---------------------------------------------------------------------
+
+Model checking: filter(avg, P=? [ F s1Phase=s2Phase&s1Phase=s3Phase&s1Phase=s4Phase&s1Phase=s5Phase ], s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start)
+Model constants: RP=10,mu=0.6,epsilon=0.1
+
+Building model...
+Model constants: RP=10,mu=0.6,epsilon=0.1
+
+Warning: Guard for command 8 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor5" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor5" is never satisfied.
+
+Computing reachable states...
+
+Reachability (BFS): 8 iterations in 0.02 seconds (average 0.002875, setup 0.00)
+
+Time for model construction: 0.033 seconds.
+
+Type:        DTMC
+States:      2920880 (200000 initial)
+Transitions: 6139905
+
+Transition matrix: 44877 nodes (16 terminal), 6139905 minterms, vars: 34r/34c
+
+Prob0: 1 iterations in 0.00 seconds (average 0.001000, setup 0.00)
+
+Prob1: 1 iterations in 0.00 seconds (average 0.004000, setup 0.00)
+
+yes = 435, no = 2920445, maybe = 0
+
+States satisfying filter s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start: 200000
+
+Average over states satisfying filter: 1.0E-4
+
+Time for model checking: 0.027 seconds.
+
+Result: 1.0E-4 (average over states satisfying filter)
+
+---------------------------------------------------------------------
+
+Model checking: filter(avg, P=? [ F s1Phase=s2Phase&s1Phase=s3Phase&s1Phase=s4Phase&s1Phase=s5Phase ], s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start)
+Model constants: RP=10,mu=0.8,epsilon=0.1
+
+Building model...
+Model constants: RP=10,mu=0.8,epsilon=0.1
+
+Warning: Guard for command 8 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 8 of module "sensor5" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor5" is never satisfied.
+
+Computing reachable states...
+
+Reachability (BFS): 8 iterations in 0.01 seconds (average 0.001125, setup 0.00)
+
+Time for model construction: 0.032 seconds.
+
+Type:        DTMC
+States:      2920880 (200000 initial)
+Transitions: 6139905
+
+Transition matrix: 44854 nodes (15 terminal), 6139905 minterms, vars: 34r/34c
+
+Prob0: 1 iterations in 0.00 seconds (average 0.001000, setup 0.00)
+
+Prob1: 1 iterations in 0.00 seconds (average 0.004000, setup 0.00)
+
+yes = 435, no = 2920445, maybe = 0
+
+States satisfying filter s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start: 200000
+
+Average over states satisfying filter: 1.0E-4
+
+Time for model checking: 0.028 seconds.
+
+Result: 1.0E-4 (average over states satisfying filter)
+
+---------------------------------------------------------------------
+
+Model checking: filter(avg, P=? [ F s1Phase=s2Phase&s1Phase=s3Phase&s1Phase=s4Phase&s1Phase=s5Phase ], s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start)
+Model constants: RP=10,mu=1,epsilon=0.1
+
+Building model...
+Model constants: RP=10,mu=1,epsilon=0.1
+
+Warning: Update 1 of command 2 of module "sensor1" doesn't do anything (line 54, column 25)
+
+Warning: Update 1 of command 3 of module "sensor1" doesn't do anything (line 67, column 25)
+
+Warning: Guard for command 8 of module "sensor1" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor1" is never satisfied.
+
+Warning: Update 1 of command 2 of module "sensor2" doesn't do anything (line 131, column 25)
+
+Warning: Update 1 of command 3 of module "sensor2" doesn't do anything (line 146, column 25)
+
+Warning: Guard for command 8 of module "sensor2" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor2" is never satisfied.
+
+Warning: Update 1 of command 2 of module "sensor3" doesn't do anything (line 211, column 65)
+
+Warning: Update 1 of command 3 of module "sensor3" doesn't do anything (line 226, column 25)
+
+Warning: Guard for command 8 of module "sensor3" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor3" is never satisfied.
+
+Warning: Update 1 of command 2 of module "sensor4" doesn't do anything (line 290, column 65)
+
+Warning: Update 1 of command 3 of module "sensor4" doesn't do anything (line 304, column 25)
+
+Warning: Guard for command 8 of module "sensor4" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor4" is never satisfied.
+
+Warning: Update 1 of command 2 of module "sensor5" doesn't do anything (line 368, column 65)
+
+Warning: Update 1 of command 3 of module "sensor5" doesn't do anything (line 383, column 25)
+
+Warning: Guard for command 8 of module "sensor5" is never satisfied.
+
+Warning: Guard for command 9 of module "sensor5" is never satisfied.
+
+Computing reachable states...
+
+Reachability (BFS): 7 iterations in 0.00 seconds (average 0.000429, setup 0.00)
+
+Time for model construction: 0.012 seconds.
+
+Type:        DTMC
+States:      2472470 (200000 initial)
+Transitions: 5505970
+
+Transition matrix: 16792 nodes (6 terminal), 5505970 minterms, vars: 34r/34c
+
+Prob0: 1 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+Prob1: 1 iterations in 0.00 seconds (average 0.003000, setup 0.00)
+
+yes = 350, no = 2472120, maybe = 0
+
+States satisfying filter s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start: 200000
+
+Average over states satisfying filter: 1.0E-4
+
+Time for model checking: 0.018 seconds.
+
+Result: 1.0E-4 (average over states satisfying filter)

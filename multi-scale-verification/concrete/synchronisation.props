@@ -1,0 +1,8 @@
+filter(avg, P=? [ F s1Phase=s2Phase&s1Phase=s3Phase ], s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start)
+
+filter(avg, P=? [ F s1Phase=s2Phase&s1Phase=s3Phase&s1Phase=s4Phase ], s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start)
+
+filter(avg, P=? [ F s1Phase=s2Phase&s1Phase=s3Phase&s1Phase=s4Phase&s1Phase=s5Phase ], s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start)
+
+filter(avg, P=? [ F s1Phase=s2Phase&s1Phase=s3Phase&s1Phase=s4Phase &s1Phase=s5Phase&s1Phase=s6Phase ], s1Mode=protocol_start&s2Mode=protocol_start&s3Mode=protocol_start&s4Mode=protocol_start&s5Mode=protocol_start&s6Mode=protocol_start)
+
