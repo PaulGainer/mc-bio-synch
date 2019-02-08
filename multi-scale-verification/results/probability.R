@@ -146,7 +146,7 @@ if(fix_n_t_e_prob_vs_ml & create_graphs) {
           scale+
 #          scale_shape_manual(values=1:nlevels(factor(prob_data$RP))) +
           ggtitle(substitute("Time for Synchronisation (N="*n*", T="*t*","~epsilon*"="*e*")", list(n = bquote(.(n)), t = bquote(.(t)), e=bquote(.(e))))) +
-          labs( x = expression(mu), y = "Sync. Time (in Cycles)", colour="RP",shape="RP") 
+          labs( x = expression(mu), y = "Sync. Time (in Cycles)", colour="R",shape="R") 
 #        print(prob_vs_ml)
         print(time_vs_ml)
 #        ggsave(sprintf("pdf/perez_n%d_t%d_e%f_prob_vs_ml.pdf",n,t,e), plot=prob_vs_ml, device="pdf", width=gwidth, height=gheight, units = "cm")
@@ -175,7 +175,7 @@ if(fix_n_t_e_prob_vs_rp & create_graphs) {
 #          scale_shape_manual(values=1:nlevels(factor(prob_data$ML))) +
           scale+
           ggtitle(substitute("Synchronisation Probability (N="*n*", T="*t*","~epsilon*"="*e*")", list(n = bquote(.(n)), t = bquote(.(t)), e=bquote(.(e))))) +
-          labs( x = "RP", y = "Sync. Probability", color=expression(mu), shape=expression(mu))
+          labs( x = "R", y = "Sync. Probability", color=expression(mu), shape=expression(mu))
         
 #        time_data_set <- time_data_set[time_data_set$time_sync != "Inf",]
 #        time_vs_rp <- ggplot(data=time_data_set ) +
@@ -323,7 +323,7 @@ if(fix_t_r_e_time_vs_N & create_graphs) {
             guides(colour= guide_legend(keywidth = 2))+
             scale_y_continuous()+
 #            scale_shape_manual(values=1:nlevels(factor(prob_data$ML))) +
-            ggtitle(substitute("Time for Synchronisation (T="*t*", RP="*r*","~epsilon*"="* e*")", list(t = bquote(.(t)),r = bquote(.(r)), e=bquote(.(e))))) +
+            ggtitle(substitute("Time for Synchronisation (T="*t*", R="*r*","~epsilon*"="* e*")", list(t = bquote(.(t)),r = bquote(.(r)), e=bquote(.(e))))) +
             labs( x = "N", y = "Sync. Time (in Cycles)", color=expression(mu), shape=expression(mu))
         } else {
           time_vs_N <- ggplot(data=time_data_set ) +
