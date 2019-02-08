@@ -5,8 +5,8 @@ const int protocol_start		= -1;
 const int start 			= 0;
 const int update			= 1;
 const int maxModeValue			= update;
-const int T 			= 10;
 
+const int T ;
 const int RP;
 const double mu;
 const double epsilon ;
