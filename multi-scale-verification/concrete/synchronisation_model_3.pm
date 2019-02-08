@@ -48,6 +48,7 @@ module sensor1
 	-> 
 		(1-mu): (s1Mode' = update) & (count' = count+1) 
 		+(mu) : (s1Mode' = update) ;
+
 	[]   	  (s1Mode = start) 
 	  	& (s1Phase + pert1+1 > T)
 		& (envMode = update)
@@ -78,11 +79,9 @@ module sensor1
 	-> 							
 		(s1Mode' = update) ;
 // UPDATE CLOCK & SYNC
-	[sync]	  (s1Mode = update) 
-			& (s1Phase = T) 						
+	[sync]	  (s1Mode = update) & (s1Phase = T) 						
 	-> 
-			  (s1Mode' = start) 
-			& (s1Phase' = 1);
+			  (s1Mode' = start) & (s1Phase' = 1);
 
 	[sync] 	  (s1Mode = update) 
 			& (s1Phase < T) 
@@ -106,146 +105,7 @@ module sensor1
 			& (s1Phase' = 1);
 endmodule
 
-module sensor2	
-	s2Mode : [-1..maxModeValue] ;
- 	s2Phase : [1..T] ;
-	[protocol_start] (s2Mode = protocol_start) -> (s2Mode' = start);
+module sensor2 = sensor1 [s1Mode=s2Mode, s2Mode=s1Mode, s1Phase=s2Phase, s2Phase=s1Phase] endmodule
 
-	// START
-	[]	  (s2Mode = start) 
-		& (s2Phase = T) 
-		& (envMode = update)
-		& (count < N)	
-	-> 
-		(1-mu): (s2Mode' = update) & (count' = count+1) 
-		+(mu) : (s2Mode' = update) ;
-
-	[]   	  (s2Mode = start) 
-	  	& (s2Phase + pert2 +1> T)
-		& (envMode = update)
-		& (count < N)
-		& (s2Phase != T)
-		& (s1Phase = T | s3Phase = T)
-		& (s1Mode = update | s1Phase <= s2Phase)
-		& (s3Mode = update | s3Phase <= s2Phase)
-	-> 
-		(1-mu): (s2Mode' = update) & (count' = count+1) 
-		+(mu) : (s2Mode' = update) ;
-
-	[]   	  (s2Mode = start) 
-	  	& (s2Phase + pert2 +1 <= T)
-		& (envMode = update)
-		& (count < N)
-		& (s2Phase != T)
-		& (s1Phase = T | s3Phase = T)
-		& (s1Mode = update | s1Phase <= s2Phase)
-		& (s3Mode = update | s3Phase <= s2Phase)
-	-> 
-		(s2Mode' = update)
-	;
-	[] 	  (s2Mode = start) 
-		& (s1Phase != T) 
-		& (s2Phase != T)
-		& (s3Phase != T)
-		& (envMode=update)  
-	-> 
-	 	  (s2Mode' = update) ;
-
-	// UPDATE CLOCK & SYNC
-	[sync] (s2Mode = update) & (s2Phase = T) 						-> 
-							(s2Mode' = start) & (s2Phase' = 1);
-	
-	[sync] 	  (s2Mode = update) & (s2Phase < T) 
-		    	& (s2Phase <= RP)							
-		-> 
-		  	  (s2Mode' = start) 
-			& (s2Phase' = s2Phase + 1) 
-			;
-	[sync]    (s2Mode = update) & (s2Phase < T)  
-		       	& (s2Phase > RP)	
-			& (s2Phase + pert2 +1 <= T)
-		-> 
-			  (s2Mode' = start) 
-			& (s2Phase' = s2Phase + pert2 +1)
-							;
-	[sync]	  (s2Mode = update) 
-			& (s2Phase < T) 
-			& (s2Phase > RP)	
-			& (s2Phase +pert2 + 1 > T)	
-		-> 
-	   		  (s2Mode' = start) & (s2Phase' = 1) 				
-			;
-
-endmodule
-
-module sensor3	
-	s3Mode : [-1..maxModeValue] ;
- 	s3Phase : [1..T] ;
-	[protocol_start] (s3Mode = protocol_start) -> (s3Mode' = start);
-
-	// START
-	[] 	  (s3Mode = start) 
-		& (s3Phase = T) 
-		& (envMode = update)
-		& (count < N)	
-	-> 
-							(1-mu): (s3Mode' = update) & (count' = count+1) 
-							+(mu) : (s3Mode' = update) ;
-
-	[]   	  (s3Mode = start) 
-	  	& (s3Phase + pert3 +1  > T)
-		& (envMode = update)
-		& (count < N)
-		& (s3Phase != T)
-		& (s1Phase = T | s2Phase = T)
-		& (s1Mode = update | s1Phase <= s3Phase)
-		& (s2Mode = update | s2Phase <= s3Phase)
-	-> 
-		(1-mu): (s3Mode' = update) & (count' = count+1) 
-		+(mu) : (s3Mode' = update) ;
-
-	[]   	  (s3Mode = start) 
-	  	& (s3Phase + pert3  +1 <= T)
-		& (envMode = update)
-		& (count < N)
-		& (s3Phase != T)
-		& (s1Phase = T | s2Phase = T)
-		& (s1Mode = update | s1Phase <= s3Phase)
-		& (s2Mode = update | s2Phase <= s3Phase)
-	-> 
-		  (s3Mode' = update) ;	
-
-	[] (s3Mode = start)  
-		& (s1Phase != T) 
-		& (s2Phase != T)
-		& (s3Phase != T)
-		& (envMode=update)  
--> 
-							(s3Mode' = update) ;
-
-// UPDATE CLOCK & SYNC
-	[sync] (s3Mode = update) & (s3Phase = T) 						-> 
-							(s3Mode' = start) & (s3Phase' = 1);
-	
-	[sync] 	  (s3Mode = update) & (s3Phase < T) 
-		    	& (s3Phase <= RP)							
-		-> 
-		  	  (s3Mode' = start) 
-			& (s3Phase' = s3Phase + 1) 
-			;
-	[sync]    (s3Mode = update) & (s3Phase < T)  
-		       	& (s3Phase > RP)	
-			& (s3Phase + pert3 + 1 <= T)	
-		-> 
-			  (s3Mode' = start) 
-			& (s3Phase' = s3Phase + pert3 + 1) 
-							;
-	[sync]	  (s3Mode = update) 
-			& (s3Phase < T) 
-			& (s3Phase > RP)	
-			& (s3Phase +  pert3 + 1 > T)
-		-> 
-	   		  (s3Mode' = start) & (s3Phase' = 1) 				
-			;
-endmodule
+module sensor3 = sensor1 [s1Mode=s3Mode, s3Mode=s1Mode, s1Phase=s3Phase, s3Phase=s1Phase] endmodule
 
